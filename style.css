@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0d001a, #1a0033, #22004d);
+  color: #f0eaff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.logo-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.logo-glow {
+  font-size: 9rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa, #c084fc, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.7));
+  animation: neon-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  from { text-shadow: 0 0 20px #a78bfa, 0 0 40px #c084fc; }
+  to   { text-shadow: 0 0 40px #ec4899, 0 0 80px #a78bfa; }
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: #e0d7ff;
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  font-weight: 300;
+  opacity: 0.9;
+  line-height: 1.5;
+  margin: 2rem 0 3.5rem;
+  max-width: 620px;
+}
+
+.primary-cta {
+  display: inline-block;
+  background: linear-gradient(45deg, #7c3aed, #a855f7, #d946ef);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.1rem 3.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-cta:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(168, 85, 247, 0.6);
+}
+
+.section {
+  padding: 10rem 5% 8rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #c084fc, #ec4899, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto 5rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem 1.8rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(168,85,247,0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+  border-color: rgba(168,85,247,0.4);
+}
+
+.icon {
+  font-size: 3.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.glass-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #d8b4fe;
+}
+
+.glass-card p {
+  opacity: 0.85;
+}
+
+.features {
+  background: rgba(0,0,0,0.2);
+}
+
+.feature-list {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  font-size: 1.4rem;
+  line-height: 2.8;
+  text-align: left;
+}
+
+.feature-item {
+  position: relative;
+  padding-left: 2.2rem;
+  margin: 1.2rem 0;
+}
+
+.feature-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #c084fc;
+  font-weight: bold;
+}
+
+.secondary-cta {
+  display: inline-block;
+  border: 2px solid #a78bfa;
+  color: #d8b4fe;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem 2.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.secondary-cta:hover {
+  background: rgba(168,85,247,0.15);
+  color: white;
+  transform: scale(1.08);
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 20px 6rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.social a {
+  color: #c4b5fd;
+  text-decoration: none;
+  margin: 0 0.8rem;
+}
+
+.social a:hover {
+  color: #a78bfa;
+}
+
+@media (max-width: 768px) {
+  .logo-glow { font-size: 6.5rem; }
+  h1 { font-size: 2.6rem; }
+  .hero-subtitle { font-size: 1.4rem; }
+  .primary-cta { font-size: 1.25rem; padding: 1rem 2.5rem; }
+  h2 { font-size: 2.8rem; }
+}
+/* Sahib Kartı Stili */
+.owner-section {
+  padding: 6rem 5% 4rem;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(139,92,246,0.08), transparent);
+}
+
+.owner-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 28px;
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  transition: all 0.5s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.owner-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 40px 100px rgba(139,92,246,0.35);
+  border-color: #a78bfa;
+}
+
+.owner-photo-placeholder {
+  flex: 0 0 280px;
+}
+
+.owner-photo-placeholder img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #a78bfa;
+  box-shadow: 0 0 40px rgba(168,85,247,0.5);
+}
+
+.owner-info {
+  text-align: left;
+  flex: 1;
+}
+
+.owner-info h2 {
+  font-size: 3.2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #c084fc, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.owner-info h3 {
+  font-size: 1.8rem;
+  color: #d8b4fe;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.bio {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.insta {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+}
+
+.social-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Mobil üçün */
+@media (max-width: 768px) {
+  .owner-card {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .owner-photo-placeholder img {
+    width: 220px;
+    height: 220px;
+  }
+  .owner-info h2 { font-size: 2.6rem; }
+}
